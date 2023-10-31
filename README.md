@@ -15,7 +15,8 @@ This is a standard bash script, you need to run it with root account.
    			-> Load Predefined
      		-> Return deleted objects
        		-> Return recycled objects
-	  
+![ALT](/Referentiel/0_ldp options 1.PNG)
+
 ![ALT](/Referentiel/0_ldp options 1.PNG)
   
 ![ALT](/Referentiel/1_ldp options 2.PNG)
