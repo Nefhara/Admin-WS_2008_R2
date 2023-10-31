@@ -1,13 +1,13 @@
 # -WS_2008_R2_Administration
 
-# -Restore deleted AD object without AD recycle bin active.
-## Context
+## -Restore deleted AD object without AD recycle bin active.
+### Context
 	- OS : Windows Server 2008 R2 ver.6.1,
  	- Domain : dc=test,dc=com (test.com),
   		- No AD recycle bin actived,
     		- "computertest1" AD object deleted.
       
-## Procedure
+### Procedure
 	- Launch "ldp.exe" with administrator right,
  		- Options -> Controls
    			-> Load Predefined
