@@ -1,6 +1,6 @@
 # -WS_2008_R2_Administration
 
-## -Restore deleted AD object without AD recycle bin active.
+## Restore deleted AD object without AD recycle bin active.
 ### Context
 	- OS : Windows Server 2008 R2 ver.6.1,
  	- Domain : dc=test,dc=com (test.com),
