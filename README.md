@@ -1,58 +1,71 @@
 # -WS_2008_R2_Administration
 
-# -How to launch it
+# -Restore deleted AD object without AD recycle bin active.
 This is a standard bash script, you need to run it with root account.
 
-  `.\Linux_live_collector.sh`
+## Context
+	- OS : Windows Server 2008 R2 ver.6.1,
+ 	- Domain : dc=test,dc=com (test.com),
+  		- No AD recycle bin actived,
+    		- "computertest1" AD object deleted.
+      
+## Procedure
+	- Launch "ldp.exe" with administrator right,
+ 		- Options -> Controls
+   			-> Load Predefined
+     		-> Return deleted objects
+       		-> Return recycled objects
+	  
+![ALT](/Referentiel/0_ldp options 1.PNG)
+  
+![ALT](/Referentiel/1_ldp options 2.PNG)
 
-  ![ALT](/Referentiel/launch_1.png)
+  	- Connection -> Bind
+   		-> Launch bind utility with administrator right.
 
+![ALT](/Referentiel/2_ldp bind 1.PNG)
 
+![ALT](/Referentiel/3_ldp bind 2.PNG)
 
+![ALT](/Referentiel/4_ldp bind 3.PNG)
 
+	- View -> Tree
+ 		-> BaseDN: dc=test,dc=com
+   		-> **WARNING : Case sensitive** 
 
+![ALT](/Referentiel/5_ldp view 1.PNG)
 
-### Cadre de travail ###
-Nom du domaine : dc=test,dc=com
-Windows Server 2008 R2 ver.6.1
+![ALT](/Referentiel/6_ldp view 2.PNG)
 
-	=> J'ai supprimé un objet de l'AD : computertest1
-	=> Pas de corbeille AD activée
-	=> Fonctionne avant / après redémarrage du serveur
+	- The Active Directory should appear,
+ 		- Search "CN=Deleted Objects,DC=test,DC=com"
+   			-> **WARNING : Case sensitive** 
+   		- Search the "computertest1" object
+     			-> Right click on the object -> Modify
+	
+![ALT](/Referentiel/7_ldp ad.PNG)
 
+![ALT](/Referentiel/8_ldp obj.PNG)
 
+	- In the "Edit Entry" board :
+ 		-> Attribute : isDeleted
+   		-> Value : keep empty
+     		-> Operation : Delete
+       		-> Press "Enter" button
 
-### Procédure ###
-Lancer ldp.exe en administrateur :
-	=> options => Controls
-		=> Load Predefined
-		=> Return deleted objects
-		=> Return recycled objects
+  	- The command should appear in the "Entry List" board
+   
+   	- In the "Edit Entry" board :
+    		-> Attribute : distinguishedName
+      		-> Value : cn=computertest1,cn=Computers,dc=test,dc=com
+			-> **WARNING : Case sensitive** 
+		-> Operation : Replace
+  		-> Box checked : Synchronous and Extended
+    		-> Press "Enter" button
 
-	=> Connection => Bind
-		=> lancer le bind avec le compte administrateur (compte courant)
+![ALT](/Referentiel/9_ldp attributs.PNG)
 
-	=> View => Tree
-		=> BaseDN: dc=test,dc=com
-
-	=> L'AD doit apparaitre
-	=> Chercher "CN=Deleted Objects,DC=test,DC=com"
-	=> Chercher l'objet en question
-	=> Clic droit dessus => Modify
-
-	=> Dans la partie "Edit Entry"
-		=> Attribute : isDeleted
-		=> Value : laisser vide
-		=> Operation : Delete
-		=> Enter
-
-	=> La commande apparaît dans la "Entry List"
-
-	=> Dans la partie "Edit Entry"
-		=> Attribute : distinguishedName
-		=> Value : cn=computer18,cn=Computers,dc=test,dc=com
-		=> Operation : Replace
-		=> case cochée : Synchronous et Extended
-		=> Enter
-
-	=> Faire "Run" et l'objet est restauré dans l'AD
+      	- The command should be appear in the "Entry List" board,
+       		-> Press "Run" button to restore the object.
+      		
+![ALT](/Referentiel/10_ldp result.PNG)
