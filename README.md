@@ -15,28 +15,27 @@ This is a standard bash script, you need to run it with root account.
    			-> Load Predefined
      		-> Return deleted objects
        		-> Return recycled objects
-![ALT](/Referentiel/0_ldp options 1.PNG)
 
-![ALT](/Referentiel/0_ldp options 1.PNG)
+![ALT](/Referentiel/0_ldp_options_1.png)
   
-![ALT](/Referentiel/1_ldp options 2.PNG)
+![ALT](/Referentiel/1_ldp_options_2.png)
 
   	- Connection -> Bind
    		-> Launch bind utility with administrator right.
 
-![ALT](/Referentiel/2_ldp bind 1.PNG)
+![ALT](/Referentiel/2_ldp_bind_1.png)
 
-![ALT](/Referentiel/3_ldp bind 2.PNG)
+![ALT](/Referentiel/3_ldp_bind_2.png)
 
-![ALT](/Referentiel/4_ldp bind 3.PNG)
+![ALT](/Referentiel/4_ldp_bind_3.png)
 
 	- View -> Tree
  		-> BaseDN: dc=test,dc=com
    		-> **WARNING : Case sensitive** 
 
-![ALT](/Referentiel/5_ldp view 1.PNG)
+![ALT](/Referentiel/5_ldp_view_1.png)
 
-![ALT](/Referentiel/6_ldp view 2.PNG)
+![ALT](/Referentiel/6_ldp_view_2.png)
 
 	- The Active Directory should appear,
  		- Search "CN=Deleted Objects,DC=test,DC=com"
@@ -44,9 +43,9 @@ This is a standard bash script, you need to run it with root account.
    		- Search the "computertest1" object
      			-> Right click on the object -> Modify
 	
-![ALT](/Referentiel/7_ldp ad.PNG)
+![ALT](/Referentiel/7_ldp_ad.png)
 
-![ALT](/Referentiel/8_ldp obj.PNG)
+![ALT](/Referentiel/8_ldp_obj.png)
 
 	- In the "Edit Entry" board :
  		-> Attribute : isDeleted
@@ -64,9 +63,9 @@ This is a standard bash script, you need to run it with root account.
   		-> Box checked : Synchronous and Extended
     		-> Press "Enter" button
 
-![ALT](/Referentiel/9_ldp attributs.PNG)
+![ALT](/Referentiel/9_ldp_attributs.png)
 
       	- The command should be appear in the "Entry List" board,
        		-> Press "Run" button to restore the object.
       		
-![ALT](/Referentiel/10_ldp result.PNG)
+![ALT](/Referentiel/10_ldp_result.png)
